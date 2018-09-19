@@ -1,2 +1,12 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, 'ユーザー登録') %>
+
+<h1>ユーザー登録</h1>
+
+<%= form_with(model: @user, local:true) do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
+  <%= form.text_field :name, class: 'form-control', placeholder: '名前' %>
+  <%= form.email_field :email, class: 'form-control', placeholder: 'メールアドレス' %>
+  <%= form.password_field :password, class: 'form-control', placeholder: 'パスワード' %>
+  <%= form.password_field :password_confirmation, class: 'form-control', placeholder: 'パスワードの確認' %>
+  <%= form.submit '登録する', class: "" %>
+<% end %>
