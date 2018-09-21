@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ingredient:</strong>
+  <%= @pantry.ingredient_id %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @pantry.quantity %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @pantry.user_id %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @pantry.remark %>
+</p>
+
+<%= link_to 'Edit', edit_pantry_path(@pantry) %> |
+<%= link_to 'Back', pantries_path %>
