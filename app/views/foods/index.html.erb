@@ -1,0 +1,10 @@
+<h1>Foods#index</h1>
+<ul>
+  <% @foods.each do |food| %>
+    <li>
+      <%= link_to food.name, pantries_path(pantry:
+        { food_id: food.id, user_id: current_user.id }), method: :post %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to '食材新規登録', new_food_path %>
