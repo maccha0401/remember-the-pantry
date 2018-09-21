@@ -1,5 +1,7 @@
 header
 <%= link_to "Home", root_path %>
+<%= link_to "Users", users_path %>
+<%= link_to "ingredients", ingredients_path %>
 <% if logged_in? %>
   <%= current_user.name %>
   <%= link_to "Log out", logout_path, method: :delete %>
