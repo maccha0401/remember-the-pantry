@@ -1,5 +1,7 @@
 class Ingredient < ApplicationRecord
-  has_many :pantries
+  belongs_to :recipe
+  belongs_to :food
 
-  validates :name, presence: true, length: { maximum: 20 }
+  validates :recipe_id, presence: true
+  validates :food_id, presence: true
 end

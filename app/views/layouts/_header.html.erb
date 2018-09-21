@@ -1,7 +1,6 @@
 header
 <%= link_to "Home", root_path %>
 <%= link_to "Users", users_path %>
-<%= link_to "ingredients", ingredients_path %>
 <%= link_to "foods", foods_path %>
 <% if logged_in? %>
   <%= current_user.name %>

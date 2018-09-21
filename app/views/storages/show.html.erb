@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Food:</strong>
+  <%= @storage.food.name %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @storage.remark %>
+</p>
+
+<%= link_to 'Edit', edit_storage_path(@storage) %> |
+<%= link_to 'Back', root_path %>

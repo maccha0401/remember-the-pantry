@@ -1,0 +1,13 @@
+<% if @my_pantry.any? %>
+  <ul class="my_pantry">
+    <% @my_pantry.each do |storage| %>
+      <li class="storage">
+        <%= storage.food.name %>
+        <%= storage.remark %>
+        <%= link_to 'Show', storage %>
+        <%= link_to 'Edit', edit_storage_path(storage) %>
+        <%= link_to 'Destroy', storage, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

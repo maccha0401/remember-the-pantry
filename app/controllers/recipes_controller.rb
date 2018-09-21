@@ -18,12 +18,12 @@ class RecipesController < ApplicationController
   def create
     # TODO: レシピ作成未完成
     @recipe = current_user.recipes.build(recipe_params)
-    ingredient = Ingredient.find_by(name: params[:recipe][:ingredient])
-    @cooking_ingredient = @recipe.cooking_ingredients.new(ingredient_id: ingredient.id)
+    food = Food.find_by(name: params[:recipe][:food])
+    @ingredient = @recipe.ingredients.new(food_id: food.id)
 
 
     if @recipe.save
-      redirect_to @recipe, notice: 'Recipe was successfully created.' if @cooking_ingredient.save
+      redirect_to @recipe, notice: 'Recipe was successfully created.' if @ingredient.save
     else
       render :new
     end
@@ -48,6 +48,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:name, cooking_ingredients_attributes: [:ingredient])
+      params.require(:recipe).permit(:name, ingredients_attributes: [:food])
     end
 end
