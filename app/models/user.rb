@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :pantries, dependent: :destroy
+  has_many :storages, dependent: :destroy
   has_many :recipes, foreign_key: "created_user_id", dependent: :destroy
 
   before_save { email.downcase! }
@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-  def my_pantries
-    Pantry.where("user_id = :user_id", user_id: id)
+  def my_pantry
+    Storage.where("user_id = :user_id", user_id: id)
   end
 end
