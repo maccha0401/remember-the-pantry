@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :users
   resources :ingredients
   resources :pantries, except: [:index]
+  resources :recipes
 end
