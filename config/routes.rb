@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  # TODO: ingredientsのresourcesをadminへ
+  # get '/ingredients', to: 'ingredients#index'
+
   resources :users
   resources :ingredients
-  resources :pantries
+  resources :pantries, except: [:index]
 end

@@ -1,2 +1,7 @@
 <h1>HOME</h1>
 <p>トップページです。</p>
+
+<% if logged_in? %>
+  <%= render 'shared/my_pantries' %>
+<% else %>
+<% end %>
