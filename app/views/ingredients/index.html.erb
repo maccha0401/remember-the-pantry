@@ -1,7 +1,10 @@
 <h1>Ingredients#index</h1>
 <ul>
   <% @ingredients.each do |ingredient| %>
-    <li><%= ingredient.name %></li>
+    <li>
+      <%= link_to ingredient.name, pantries_path(pantry:
+        { ingredient_id: ingredient.id, user_id: current_user.id }), method: :post %>
+    </li>
   <% end %>
 </ul>
-<%= link_to '新規登録', new_ingredient_path %>
+<%= link_to '食材新規登録', new_ingredient_path %>
