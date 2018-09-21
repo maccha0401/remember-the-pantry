@@ -1,0 +1,13 @@
+<% if @my_pantries.any? %>
+  <ul class="pantries">
+    <% @my_pantries.each do |pantry| %>
+      <li class="pantry">
+        <%= pantry.ingredient.name %>
+        <%= pantry.remark %>
+        <%= link_to 'Show', pantry %>
+        <%= link_to 'Edit', edit_pantry_path(pantry) %>
+        <%= link_to 'Destroy', pantry, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

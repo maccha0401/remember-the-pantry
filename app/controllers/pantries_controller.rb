@@ -27,7 +27,7 @@ class PantriesController < ApplicationController
 
   def update
     if @pantry.update(pantry_params)
-      redirect_to pantries_path, notice: 'Pantry was successfully updated.'
+      redirect_to root_path, notice: 'Pantry was successfully updated.'
     else
       render :edit
     end
