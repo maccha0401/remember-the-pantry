@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
 
   def create
     # TODO: レシピ作成未完成
-    @recipe = current_user.recipes.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
     ingredient = Ingredient.find_by(name: params[:recipe][:ingredient])
     @cooking_ingredient = @recipe.cooking_ingredients.new(ingredient_id: ingredient.id)
 
