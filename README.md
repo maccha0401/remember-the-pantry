@@ -1,24 +1,10 @@
-# README
+# RememberThePantry
+application for [RememberThePantry](#).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+家庭内の食材管理を目的としたRailsアプリケーションです。
 
-Things you may want to cover:
+## アプリケーションの概要
 
-* Ruby version
+食材一覧から保存する食材を選択し、パントリーに追加していきます。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To Be Continued
