@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
   def create
     # TODO: レシピ作成未完成
     @recipe = current_user.recipes.build(recipe_params)
-    food = Food.find_by(name: params[:recipe][:food])
+    food = Food.find_by(name: params[:recipe][:ingredient])
     @ingredient = @recipe.ingredients.new(food_id: food.id)
 
 
@@ -40,6 +40,17 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy
     redirect_to recipes_url, notice: 'Recipe was successfully destroyed.'
+  end
+
+  def can_be_made
+    pantry_foods_id = current_user.my_pantry.map { |storage| storage.food.id }
+    recipes = Recipe.all
+
+    @enable_recipes = recipes.select do |recipe|
+      recipe_foods_id = recipe.ingredients.map { |ingredient| ingredient.food.id }
+      recipe_foods_id == recipe_foods_id & pantry_foods_id
+    end
+
   end
 
   private
