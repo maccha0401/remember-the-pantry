@@ -12,5 +12,9 @@ Rails.application.routes.draw do
   resources :users
   resources :foods
   resources :storages, except: [:index]
-  resources :recipes
+  resources :recipes do
+    collection do
+      get 'can_be_made'
+    end
+  end
 end
