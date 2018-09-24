@@ -50,7 +50,7 @@ class RecipesController < ApplicationController
     pantry_foods_id = current_user.my_pantry.map(&:food_id)
     recipes = Recipe.all
 
-    @enable_recipes = recipes.select do |recipe|
+    @enable_recipes = recipes.includes(:ingredients).select do |recipe|
       recipe_foods_id = recipe.foods_id
       recipe_foods_id == recipe_foods_id & pantry_foods_id
     end
@@ -60,7 +60,7 @@ class RecipesController < ApplicationController
     pantry_foods_id = current_user.my_pantry.map(&:food_id)
     recipes = Recipe.all
 
-    @enable_recipes = recipes.select do |recipe|
+    @enable_recipes = recipes.includes(:ingredients).select do |recipe|
       recipe_foods_id = recipe.foods_id
       (recipe_foods_id & pantry_foods_id).length >= (recipe_foods_id.length / 2)
     end
