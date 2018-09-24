@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :recipes do
     collection do
       get 'can_be_made'
+      get 'a_little_more'
     end
   end
 end
