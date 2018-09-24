@@ -1,13 +1,15 @@
-<% if @my_pantry.any? %>
-  <ul class="my_pantry">
-    <% @my_pantry.each do |storage| %>
-      <li class="storages <%= storage.food.food_category.name_en %>">
-        <%= storage.food.name %>
-        <%= storage.remark %>
-        <%= link_to 'Show', storage %>
-        <%= link_to 'Edit', edit_storage_path(storage) %>
-        <%= link_to 'Destroy', storage, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="my-pantry">
+  <h1>マイパントリー</h1>
+  <% if @my_pantry.any? %>
+    <ul class="my-pantry-list">
+      <% @my_pantry.each do |storage| %>
+        <li class="my-pantry-list-item <%= storage.food.food_category.name_en %>">
+          <%= storage.food.name %>
+          <%= storage.remark %>
+          <%= link_to 'メモを編集', edit_storage_path(storage) %>
+          <%= link_to '食材を削除', storage, method: :delete, data: { confirm: '削除しますか?' } %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

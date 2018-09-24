@@ -1,7 +1,7 @@
-<h1>HOME</h1>
-<p>トップページです。</p>
-
 <% if logged_in? %>
   <%= render 'shared/my_pantry' %>
 <% else %>
+  <div class="home-logout">
+    <%= image_tag("main.jpg", class: "main-visual") %>
+  </div>
 <% end %>

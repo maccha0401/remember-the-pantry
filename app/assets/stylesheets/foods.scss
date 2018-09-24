@@ -1,41 +1,48 @@
-.food_list {
-  margin: 0;
-  padding: 0;
-  &_item {
+.foods {
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  &-list {
+    margin: 0;
+    padding: 0;
+  }
+  &-list-item {
     margin: 15px 0;
     padding: 10px 20px;
+    border-radius: 5px;
     a {
       color: #333;
     }
-  }
-  .meats {
-    background: #ffc1c1;
-  }
-  .vegetables {
-    background: #7fff7f;
-  }
-  .potatos {
-    background: #ffbf7f;
-  }
-  .beans {
-    background: #bfff7f;
-  }
-  .mushrooms {
-    background: #ffddbc;
-  }
-  .seafoods {
-    background: #7fbfff;
-  }
-  .seaweeds {
-    background: #7fffbf;
-  }
-  .processed_foods {
-    background: #ffff7f;
-  }
-  .dairy_products {
-    background: #ffffa8;
-  }
-  .others {
-    background: #dcdcdc;
+    &.meats {
+      background: #ffc1c1;
+    }
+    &.vegetables {
+      background: #7fff7f;
+    }
+    &.potatos {
+      background: #ffbf7f;
+    }
+    &.beans {
+      background: #bfff7f;
+    }
+    &.mushrooms {
+      background: #ffddbc;
+    }
+    &.seafoods {
+      background: #7fbfff;
+    }
+    &.seaweeds {
+      background: #7fffbf;
+    }
+    &.processed_foods {
+      background: #ffff7f;
+    }
+    &.dairy_products {
+      background: #ffffa8;
+    }
+    &.others {
+      background: #dcdcdc;
+    }
   }
 }

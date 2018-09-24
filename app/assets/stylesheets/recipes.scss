@@ -1,3 +1,17 @@
-// Place all the styles related to the recipes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.recipes {
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+.recipe-list {
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      margin: 10px 0px;
+      padding: 5px;
+    }
+  }
+}
