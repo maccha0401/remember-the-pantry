@@ -10,30 +10,22 @@ User.create!(name: "hoge fuga",
             password_confirmation: "foobar")
 
 # Foods
-foods = %w[鶏肉 玉ねぎ 卵 豚肉 キャベツ 牛肉 じゃがいも 人参]
+require 'csv'
 
-foods.each do |food|
-  Food.create!(name: food)
+csv = CSV.read('db/seeds/foods.csv', headers: true)
+csv.each do |data|
+  Food.create!(data.to_hash)
 end
 
 # Recipes
 user = User.first
-recipes = %w[親子丼 ホイコーロー ビーフカレー]
-
-recipes.each do |recipe|
-  user.recipes.create!(name: recipe)
+csv = CSV.read('db/seeds/recipes.csv', headers: true)
+csv.each do |data|
+  user.recipes.create!(data.to_hash)
 end
 
-recipe = user.recipes.find_by(name: "親子丼")
-recipe.ingredients.create!(food_id: 1)
-recipe.ingredients.create!(food_id: 2)
-recipe.ingredients.create!(food_id: 3)
-
-recipe = user.recipes.find_by(name: "ホイコーロー")
-recipe.ingredients.create!(food_id: 4)
-recipe.ingredients.create!(food_id: 5)
-
-recipe = user.recipes.find_by(name: "ビーフカレー")
-recipe.ingredients.create!(food_id: 6)
-recipe.ingredients.create!(food_id: 7)
-recipe.ingredients.create!(food_id: 8)
+# Ingredients
+csv = CSV.read('db/seeds/ingredients.csv', headers: true)
+csv.each do |data|
+  Ingredient.create!(data.to_hash)
+end
