@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   def my_pantry
-    Storage.where("user_id = :user_id", user_id: id)
+    Storage.created_desc.where("user_id = :user_id", user_id: id)
   end
 
   # TODO: もっとスマートにできない？
