@@ -10,6 +10,13 @@
   <p>
     <strong>Ingredient<%= counta %>:</strong>
     <%= ingredient.food.name %>
+    <span>
+      <% if @foods_in_pantry.include?(ingredient) %>
+        ある
+      <% else %>
+        ない
+      <% end %>
+    </span>
   </p>
   <% counta += 1 %>
 <% end %>
