@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :storages, dependent: :destroy
+  has_many :foods, through: :storages
   has_many :recipes, foreign_key: "created_user_id", dependent: :destroy
 
   before_save { email.downcase! }
