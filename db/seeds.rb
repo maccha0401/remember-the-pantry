@@ -9,9 +9,14 @@ User.create!(name: "hoge fuga",
             password: "foobar",
             password_confirmation: "foobar")
 
-# Foods
+# Food_categories
 require 'csv'
+csv = CSV.read('db/seeds/food_categories.csv', headers: true)
+csv.each do |data|
+  FoodCategory.create!(data.to_hash)
+end
 
+# Foods
 csv = CSV.read('db/seeds/foods.csv', headers: true)
 csv.each do |data|
   Food.create!(data.to_hash)
