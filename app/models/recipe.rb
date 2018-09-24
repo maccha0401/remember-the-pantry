@@ -4,4 +4,8 @@ class Recipe < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 15 }
   validates :created_user_id, presence: true
+
+  def foods_id
+    self.ingredients.map(&:food_id)
+  end
 end
