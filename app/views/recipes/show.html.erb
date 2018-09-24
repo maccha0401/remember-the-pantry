@@ -21,6 +21,7 @@
   <% counta += 1 %>
 <% end %>
 
-
+<%= link_to '食材を使用', used_as_ingredient_recipe_path, method: :delete,
+                        data: { confirm: "食材を消費して、マイパントリーから削除しますか？" } %>
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
