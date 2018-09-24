@@ -17,5 +17,8 @@ Rails.application.routes.draw do
       get 'can_be_made'
       get 'a_little_more'
     end
+    member do
+      delete 'used_as_ingredient'
+    end
   end
 end

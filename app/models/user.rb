@@ -15,4 +15,9 @@ class User < ApplicationRecord
   def my_pantry
     Storage.where("user_id = :user_id", user_id: id)
   end
+
+  # TODO: もっとスマートにできない？
+  def my_pantry_foods_id
+    my_pantry.map(&:food_id)
+  end
 end
