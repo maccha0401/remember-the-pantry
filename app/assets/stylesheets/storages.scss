@@ -9,6 +9,7 @@
     &-item {
       margin: 15px 0;
       padding: 10px 20px;
+      border-radius: 5px;
       &.meats {
         background: #ffc1c1;
       }
@@ -39,6 +40,22 @@
       &.others {
         background: #dcdcdc;
       }
+    }
+  }
+}
+
+.storages {
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  .storages-form {
+    margin-bottom: 30px;
+    .field {
+      margin-bottom: 20px;
+    }
+    .actions {
+      margin-bottom: 20px;
     }
   }
 }

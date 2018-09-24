@@ -1,6 +1,7 @@
-<h1>Editing Storage</h1>
+<div class="storages">
+  <h1><%= @storage.food.name %></h1>
 
-<%= render 'form', storage: @storage %>
+  <%= render 'form', storage: @storage %>
 
-<%= link_to 'Show', @storage %> |
-<%= link_to 'Back', root_path %>
+  <%= link_to '戻る', root_path %>
+</div>
