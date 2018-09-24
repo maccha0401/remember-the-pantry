@@ -1,7 +1,7 @@
-<h1>Foods#index</h1>
-<ul>
+<h1>食品リスト</h1>
+<ul class="food_list">
   <% @foods.each do |food| %>
-    <li>
+    <li class="food_list_item <%= food.food_category.name_en %>">
       <%= link_to food.name, storages_path(storage:
         { food_id: food.id, user_id: current_user.id }), method: :post %>
     </li>

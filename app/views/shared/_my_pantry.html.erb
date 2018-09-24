@@ -1,7 +1,7 @@
 <% if @my_pantry.any? %>
   <ul class="my_pantry">
     <% @my_pantry.each do |storage| %>
-      <li class="storage">
+      <li class="storages <%= storage.food.food_category.name_en %>">
         <%= storage.food.name %>
         <%= storage.remark %>
         <%= link_to 'Show', storage %>

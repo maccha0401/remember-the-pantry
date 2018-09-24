@@ -1,9 +1,38 @@
 .my_pantry {
   margin: 0;
   padding: 0;
-}
-
-.my_pantry .storage {
-  margin: 15px 0;
-  padding: 10px;
+  .storages {
+    margin: 15px 0;
+    padding: 10px 20px;
+  }
+  .meats {
+    background: #ffc1c1;
+  }
+  .vegetables {
+    background: #7fff7f;
+  }
+  .potatos {
+    background: #ffbf7f;
+  }
+  .beans {
+    background: #bfff7f;
+  }
+  .mushrooms {
+    background: #ffddbc;
+  }
+  .seafoods {
+    background: #7fbfff;
+  }
+  .seaweeds {
+    background: #7fffbf;
+  }
+  .processed_foods {
+    background: #ffff7f;
+  }
+  .dairy_products {
+    background: #ffffa8;
+  }
+  .others {
+    background: #dcdcdc;
+  }
 }
