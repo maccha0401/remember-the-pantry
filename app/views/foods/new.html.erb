@@ -1,9 +1,0 @@
-<% provide(:title, '食材登録') %>
-
-<h1>食材登録</h1>
-
-<%= form_with(model: @food, local:true) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <%= f.text_field :name, class: 'form-control', placeholder: '名前' %>
-  <%= f.submit '登録する', class: "" %>
-<% end %>

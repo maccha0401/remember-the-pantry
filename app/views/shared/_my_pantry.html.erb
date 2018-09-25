@@ -1,5 +1,10 @@
 <div class="my-pantry">
   <h1>マイパントリー</h1>
+  <ul class="storages-menu">
+    <li class="storages-menu-nav">
+      <%= link_to '全て削除', delete_history_foods_path, method: :post %>
+    </li>
+  </ul>
   <% if @my_pantry.any? %>
     <ul class="my-pantry-list">
       <% @my_pantry.each do |storage| %>
