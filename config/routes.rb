@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   # get '/foods', to: 'foods#index'
 
   resources :users
-  resources :foods
+  resources :foods do
+    collection do
+      get 'history'
+      post 'delete_history'
+    end
+  end
   resources :storages, except: [:index]
   resources :recipes do
     collection do

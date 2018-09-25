@@ -19,6 +19,11 @@ class StoragesController < ApplicationController
     @storage = Storage.new(storage_params)
 
     if @storage.save
+      food_history = []
+      food_history = cookies[:food_history].split(",") if cookies[:food_history]
+      food_history.delete_at(0) if food_history.length >= 10
+      food_history << @storage.food_id
+      cookies[:food_history] = food_history.join(",")
       redirect_to foods_path, notice: "#{@storage.food.name}をパントリーに追加しました"
     else
       render 'foods/index'
