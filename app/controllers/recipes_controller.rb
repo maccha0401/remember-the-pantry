@@ -67,14 +67,15 @@ class RecipesController < ApplicationController
   end
 
   def used_as_ingredient
-    return redirect_to @recipe if (@recipe.foods_id & current_user.my_pantry_foods_id).empty?
+    return redirect_to @recipe,
+      notice: "#{@recipe.name}の材料がパントリーにありません" if (@recipe.foods_id & current_user.my_pantry_foods_id).empty?
 
     @recipe.foods_id.each do |food_id|
       remove_storage = current_user.my_pantry.find_by(food_id: food_id)
       remove_storage.destroy if remove_storage.present?
     end
 
-    redirect_to (root_url)
+    redirect_to (root_url), notice: "#{@recipe.name}の材料をパントリーから消費しました"
   end
 
   private

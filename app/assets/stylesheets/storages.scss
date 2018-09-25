@@ -1,3 +1,61 @@
-// Place all the styles related to the storages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.my-pantry {
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  &-list {
+    margin: 0;
+    padding: 0;
+    &-item {
+      margin: 15px 0;
+      padding: 10px 20px;
+      border-radius: 5px;
+      &.meats {
+        background: #ffc1c1;
+      }
+      &.vegetables {
+        background: #7fff7f;
+      }
+      &.potatos {
+        background: #ffbf7f;
+      }
+      &.beans {
+        background: #bfff7f;
+      }
+      &.mushrooms {
+        background: #ffddbc;
+      }
+      &.seafoods {
+        background: #7fbfff;
+      }
+      &.seaweeds {
+        background: #7fffbf;
+      }
+      &.processed_foods {
+        background: #ffff7f;
+      }
+      &.dairy_products {
+        background: #ffffa8;
+      }
+      &.others {
+        background: #dcdcdc;
+      }
+    }
+  }
+}
+
+.storages {
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  .storages-form {
+    margin-bottom: 30px;
+    .field {
+      margin-bottom: 20px;
+    }
+    .actions {
+      margin-bottom: 20px;
+    }
+  }
+}

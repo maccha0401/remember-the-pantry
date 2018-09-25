@@ -1,27 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="recipes">
+  <p id="notice"><%= notice %></p>
 
-<h1>A little more with my pantry</h1>
+  <h1>あと少しの食材で作ることができるレシピ</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="recipes-list">
 
-  <tbody>
-    <% @enable_recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.name %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Recipe', new_recipe_path %>
+    <ul>
+      <% @enable_recipes.each do |recipe| %>
+        <li><%= link_to recipe.name, recipe %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
