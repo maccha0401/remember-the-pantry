@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180925082249) do
+ActiveRecord::Schema.define(version: 20180925110808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,52 +42,52 @@ ActiveRecord::Schema.define(version: 20180925082249) do
   end
 
   create_table "food_categories", force: :cascade do |t|
-    t.string "name_en"
-    t.string "name_ja"
+    t.string "name_en", null: false
+    t.string "name_ja", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "foods", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "hiragana"
     t.string "katakana"
     t.string "kanji"
     t.string "other"
-    t.integer "category_id"
+    t.integer "category_id", null: false
   end
 
   create_table "ingredients", force: :cascade do |t|
-    t.integer "recipe_id"
-    t.integer "food_id"
+    t.integer "recipe_id", null: false
+    t.integer "food_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "created_user_id"
-    t.string "category"
+    t.integer "created_user_id", null: false
+    t.string "category", null: false
   end
 
   create_table "storages", force: :cascade do |t|
-    t.integer "food_id"
-    t.integer "user_id"
+    t.integer "food_id", null: false
+    t.integer "user_id", null: false
     t.string "remark"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "name", null: false
+    t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
+    t.string "password_digest", null: false
   end
 
 end
