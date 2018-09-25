@@ -2,7 +2,7 @@
   "name": "remember_the_pantry",
   "private": true,
   "dependencies": {
-    "bootstrap": "4",
+    "bootstrap": "^4.1.2",
     "jquery": "^3.3.1"
   }
 }
