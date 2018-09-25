@@ -1,11 +1,12 @@
 <div class="my-pantry">
   <h1>マイパントリー</h1>
-  <ul class="storages-menu">
-    <li class="storages-menu-nav">
-      <%= link_to '全て削除', delete_history_foods_path, method: :post %>
-    </li>
-  </ul>
   <% if @my_pantry.any? %>
+    <ul class="storages-menu">
+      <li class="storages-menu-nav">
+        <%= link_to '全て削除', destroy_all_storages_path, method: :delete,
+                                data: { confirm: '全ての食材を削除しますか?' } %>
+      </li>
+    </ul>
     <ul class="my-pantry-list">
       <% @my_pantry.each do |storage| %>
         <li class="my-pantry-list-item <%= storage.food.food_category.name_en %>">
@@ -16,5 +17,7 @@
         </li>
       <% end %>
     </ul>
+  <% else %>
+    <p>パントリーは空です</p>
   <% end %>
 </div>
