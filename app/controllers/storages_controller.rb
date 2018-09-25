@@ -1,15 +1,7 @@
 class StoragesController < ApplicationController
   before_action :set_storage, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @storages = Storage.all
-  end
-
   def show
-  end
-
-  def new
-    @storage = Storage.new
   end
 
   def edit
@@ -41,6 +33,12 @@ class StoragesController < ApplicationController
   def destroy
     @storage.destroy
     redirect_to root_url, notice: "#{@storage.food.name}をパントリーから削除しました"
+  end
+
+  def destroy_all
+    storages = current_user.my_pantry
+    Storage.delete(storages)
+    redirect_to root_url, notice: "全ての食材をパントリーから削除しました"
   end
 
   private

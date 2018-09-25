@@ -12,14 +12,18 @@ Rails.application.routes.draw do
   # get '/foods', to: 'foods#index'
 
   resources :users
-  resources :foods do
+  resources :foods, only: [:index] do
     collection do
       get 'history'
       post 'delete_history'
     end
   end
-  resources :storages, except: [:index]
-  resources :recipes do
+  resources :storages, except: [:index, :new] do
+    collection do
+      delete 'destroy_all'
+    end
+  end
+  resources :recipes, only: [:index, :show] do
     collection do
       get 'can_be_made'
       get 'a_little_more'

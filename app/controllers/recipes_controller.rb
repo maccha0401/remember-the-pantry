@@ -12,13 +12,6 @@ class RecipesController < ApplicationController
     end
   end
 
-  def new
-    @recipe = Recipe.new
-  end
-
-  def edit
-  end
-
   def create
     # TODO: レシピ作成未完成
     @recipe = current_user.recipes.build(recipe_params)
@@ -32,20 +25,7 @@ class RecipesController < ApplicationController
       render :new
     end
   end
-
-  def update
-    if @recipe.update(recipe_params)
-      redirect_to @recipe, notice: 'Recipe was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @recipe.destroy
-    redirect_to recipes_url, notice: 'Recipe was successfully destroyed.'
-  end
-
+  
   def can_be_made
     pantry_foods_id = current_user.my_pantry.map(&:food_id)
     recipes = Recipe.all
