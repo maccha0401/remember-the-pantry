@@ -3,15 +3,23 @@
     font-size: 24px;
     margin-bottom: 30px;
   }
-}
-
-.recipe-list {
-  ul {
-    margin: 0;
-    padding: 0;
-    li {
-      margin: 10px 0px;
-      padding: 5px;
+  &-list {
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        margin: 10px 0px;
+        padding: 5px;
+      }
     }
+  }
+  &-ingredients {
+    margin-bottom: 30px;
+    li {
+      margin: 10px 0;
+    }
+  }
+  &-action .btn{
+    margin-bottom: 30px;
   }
 }

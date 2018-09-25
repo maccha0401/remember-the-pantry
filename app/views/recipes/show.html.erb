@@ -1,23 +1,28 @@
-<div class="recipes-show">
-  
+<div class="recipes">
+
   <h1><%= @recipe.name %></h1>
 
-  <p>材料</p>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient.food.name %>
-      <span>
-        <% if @foods_in_pantry.include?(ingredient) %>
-          <%= fa_icon("check", class: "fa-fw icon-green") %>
-        <% else %>
-          <%= fa_icon("times", class: "fa-fw icon-red") %>
-        <% end %>
-      </span>
-    </li>
-  <% end %>
+  <div class="recipes-ingredients">
 
-  <%= link_to '食材を使用', used_as_ingredient_recipe_path, method: :delete,
-                          data: { confirm: "食材を消費して、マイパントリーから削除しますか？" } %>
-  <br>
-  <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-  <%= link_to 'Back', recipes_path %>
+    <p><strong>材料</strong></p>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient.food.name %>
+        <span>
+          <% if @foods_in_pantry.include?(ingredient) %>
+            <%= fa_icon("check", class: "fa-fw icon-green") %>
+          <% else %>
+            <%= fa_icon("times", class: "fa-fw icon-red") %>
+          <% end %>
+        </span>
+      </li>
+    <% end %>
+  </div>
+
+  <div class="recipes-action">
+    <%= link_to '食材を使用', used_as_ingredient_recipe_path, method: :delete, class: "btn btn-primary",
+                            data: { confirm: "食材を消費して、マイパントリーから削除しますか？" } %>
+    <br>
+    <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+    <%= link_to '戻る', :back %>
+  </div>
 </div>
