@@ -1,13 +1,16 @@
+# Adminuser
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
 # Users
 User.create!(name: "John Doe",
             email: "johndoe@example.com",
             password: "nicesense",
-            password_confirmation: "nicesense")
+            password_confirmation: "nicesense") if Rails.env.development?
 
 User.create!(name: "hoge fuga",
             email: "hogefuga@example.com",
             password: "foobar",
-            password_confirmation: "foobar")
+            password_confirmation: "foobar") if Rails.env.development?
 
 # Food_categories
 require 'csv'
