@@ -1,8 +1,8 @@
 <div class="foods">
-  <h1>食材をパントリーに追加する</h1>
+  <h1>最近追加した食材</h1>
   <ul class="foods-menu">
     <li class="foods-menu-nav">
-      <%= link_to '最近追加した食材', history_foods_path %>
+      <%= link_to '履歴を削除', delete_history_foods_path, method: :post %>
     </li>
   </ul>
   <ul class="foods-list">
