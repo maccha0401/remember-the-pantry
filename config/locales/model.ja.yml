@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      food_category: 食材カテゴリ
+      food: 食材
+      recipe_category: レシピカテゴリ
+      recipe: レシピ
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワードの確認
+      food_category:
+        name: 食材カテゴリ名
+        name_en: 食材カテゴリ名（英語）
+      food:
+        name: 食材名
+        hiragana: ひらがな
+        katakana: カタカナ
+        kanji: 漢字
+        other: その他
+        category_id: カテゴリID
+      recipe_category:
+        name: レシピカテゴリ名
+      recipe:
+          name: レシピ名
+          category_id: カテゴリID
