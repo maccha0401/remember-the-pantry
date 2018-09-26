@@ -1,41 +1,22 @@
-# Adminuser
-# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-
-# Users
-User.create!(name: "hoge fuga",
-            email: "hogefuga@example.com",
-            password: "foobar",
-            password_confirmation: "foobar") if Rails.env.development?
-
-# Food_categories
 require 'csv'
-csv = CSV.read('db/seeds/food_categories.csv', headers: true)
-csv.each do |data|
-  FoodCategory.create!(data.to_hash)
-end
 
-# Foods
-csv = CSV.read('db/seeds/foods.csv', headers: true)
-csv.each do |data|
-  Food.create!(data.to_hash)
-end
+csv_import_models = %w(food_category food recipe_category recipe ingredient)
 
-# Recipe_categories
-require 'csv'
-csv = CSV.read('db/seeds/recipe_categories.csv', headers: true)
-csv.each do |data|
-  RecipeCategory.create!(data.to_hash)
-end
+csv_import_models.each do |model_name|
+  puts const = model_name.camelize.constantize
 
-# Recipes
-user = User.first
-csv = CSV.read('db/seeds/recipes.csv', headers: true)
-csv.each do |data|
-  user.recipes.create!(data.to_hash)
-end
+  const.transaction do
+    ids = []
 
-# Ingredients
-csv = CSV.read('db/seeds/ingredients.csv', headers: true)
-csv.each do |data|
-  Ingredient.create!(data.to_hash)
+    CSV.foreach("db/seeds/#{model_name.pluralize}.csv", headers: true) do |csv_row|
+      ids << id = csv_row.to_hash['id']
+      record = const.find_or_initialize_by(id: id)
+      record.update!(csv_row.to_hash.select{ |k, _| k.in?(const.column_names) })
+      puts "=> #{record.inspect}"
+    end
+
+    const.where.not(id: ids).destroy_all
+
+    ActiveRecord::Base.connection.execute("ALTER SEQUENCE #{model_name.pluralize}_id_seq RESTART WITH #{ids.map(&:to_i).max + 1}")
+  end
 end
