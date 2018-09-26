@@ -20,6 +20,13 @@ csv.each do |data|
   Food.create!(data.to_hash)
 end
 
+# Recipe_categories
+require 'csv'
+csv = CSV.read('db/seeds/recipe_categories.csv', headers: true)
+csv.each do |data|
+  RecipeCategory.create!(data.to_hash)
+end
+
 # Recipes
 user = User.first
 csv = CSV.read('db/seeds/recipes.csv', headers: true)

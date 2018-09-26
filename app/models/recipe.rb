@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
   belongs_to :created_user, class_name: "User", foreign_key: :created_user_id
+  belongs_to :recipe_category, class_name: "RecipeCategory", foreign_key: "category_id"
   has_many :ingredients, dependent: :destroy
   has_many :foods, through: :ingredients
 
